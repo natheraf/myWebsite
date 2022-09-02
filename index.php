@@ -1,0 +1,3 @@
+<?php
+    header('location: ./pages/LandingPage.html'); //edit the file to redirect to here...
+?>

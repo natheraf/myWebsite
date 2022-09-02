@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="../styles/loginAndRegister.css">
+        <script src="../scripts/loginAndRegister.js"></script>
+    </head>
+    <body onload="loginPageOnLoad()">
+        <div id="loginFailed">
+
+        </div>
+        <div id="main">
+            <div id="form">
+                <div id="form_body">
+                    <div id="title">
+                        <h1>Login</h1>
+                    </div>
+                    <div id="form-input">
+                        <form action="../scripts/login.php" method="post">
+                            <label for="loginEmailText">Email<br>
+                                <input id="loginEmailText" class="form-input-txt" type="text" name="userEmail" placeholder="Email" required>
+                            </label><br><br>
+                            <label for="loginPwdText">Password<br>
+                                <input id="loginPwdText" class="form-input-txt" type="password" name="userPassword" placeholder="Password" required>
+                            </label><br><br>
+                            <div id="button-div">
+                                <input class="form-input-btn" type="submit" value="Login">
+                                <input class="form-input-btn" type="button" value="Register" onclick="window.location.href='register.html'">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

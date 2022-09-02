@@ -1,0 +1,24 @@
+#multithreadedArgs {
+    visibility: hidden;
+    height: 0px;
+    width: 400px;
+}
+
+#mTArgumentExplanation {
+    visibility: hidden;
+    height: 0px;
+}
+
+#cancel_form {
+    visibility: hidden;
+    height: 0px;
+}
+
+#download_form {
+    visibility: hidden;
+    height: 0px;
+}
+
+#warning {
+    color: red;
+}

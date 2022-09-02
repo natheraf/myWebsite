@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" type="text/css" href="../styles/loginAndRegister.css">
+        <script src="../scripts/loginAndRegister.js"></script>
+    </head>
+    <body onload="registerPageOnLoad()">
+        <div id="main">
+            <div id="form">
+                <div id="form_body">
+                    <div id="title">
+                        <h1>Register</h1>
+                    </div>
+                    <div id="form-input">
+                        <form onsubmit="return checkRegisterInfo()" method="post" action="../scripts/register.php">
+                            <label id="emailLabel" for="loginEmailText">Email</label><br>
+                                <input id="loginEmailText" class="form-input-txt" type="text" name="userEmail" placeholder="example@address.domain" required>
+                            <br><br>
+
+                            <div id="pwdDiv">
+                                <label id="pwdLabel" for="loginPwdText">Password</label>
+                                <span id="strPwdCheckBoxSpan">
+                                    <input id="strPwdCheckBox" type="checkbox" onchange="strPwdCheckBoxChange()" checked><label id="strPwdLabel" for="strPwdCheckBox">Strong?</label>
+                                </span>
+                            </div>
+                                <input id="loginPwdText" class="form-input-txt" type="password" name="userPassword" placeholder="6+ characters, 1+ number and 1+ special" required>
+                            <br><br>
+                            <label id="cPwdLabel" for="loginCPwdText">Confirm Password</label><br>
+                                <input id="loginCPwdText" class="form-input-txt" type="password" name="userCPassword" placeholder="" required>
+                            <br><br>
+
+                            <div id="button-div">
+                                <input class="form-input-btn" type="submit" value="Create Account" >
+                                <input class="form-input-btn" type="button" value="Back to Login" onclick="window.location.href='loginPage.html'">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

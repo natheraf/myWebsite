@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<style>
+    a:link {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    a:active {
+        text-decoration: none;
+    }
+
+    #navbar {
+        display: grid;
+        grid-template-columns: 1fr 140px 140px 50px;
+        justify-items: end;
+        position: fixed;
+        background-color: Black;
+        top: 0;
+        margin-left: -8px;
+        width: 100%;
+        height: 60px;
+    }
+
+    #nav-link {
+        margin-top: 12px;
+        color: White;
+        font-size: 30px;
+    }
+
+    #main {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    #welcome-section {
+        height: 100vh;
+        background: Black;
+        margin: -8px -8px 8px -8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .welcome-text {
+        color: White;
+        font-size: 60px;
+    }
+
+    .welcome-subtext {
+        color: Red;
+        font-size: 30px;
+        margin-top: -35px;
+    }
+
+    #projects {
+        background: White;
+        display: grid;
+        justify-items: center;
+        /*   grid-template-columns: 1fr; */
+    }
+
+    #projects-grid {
+        margin-top: 30px;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project-tile {
+        display: grid;
+        justify-items: center;
+        background: black;
+        padding: 10px;
+        border-radius: 5px;
+        border-width: 1px;
+        margin: 10px;
+    }
+
+    .img {
+        border-radius: 5px;
+        border-width: 1px;
+    }
+
+    .img-caption {
+        color: white;
+        font-size: 20px;
+        margin: 15px 0px 15px 0;
+    }
+
+    #profile-link {
+        font-size: 20px;
+        background: black;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        border-width: 1px;
+        margin: 15px;
+    }
+
+    #contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: black;
+    }
+
+    #links {
+        display: grid;
+        grid-template-columns: 1fr 1fr 230px;
+    }
+
+    .contact-methods {
+        margin: 20px;
+    }
+
+    .contact-img {
+        width: auto;
+        height: 50px;
+    }
+
+    #email {
+        color: White;
+        font-size: 45px;
+        margin-left: -40px;
+    }
+
+    @media (max-width: 1080px) {
+        #projects-grid {
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<nav id="navbar">
+    <a id="nav-link" href="#">About</a>
+    <a id="nav-link" href="#projects">Projects</a>
+    <a id="nav-link" href="#contact">Contact</a>
+</nav>
+<div id="main">
+    <div id="welcome-section">
+        <h1 class="welcome-text">Hey I'm Eric</h1>
+        <h2 class="welcome-subtext">a web developer</h2>
+    </div>
+    <div id="projects">
+        <h1>These are some of my projects</h1>
+        <hr size="2px" width="70%" color="black">
+        <div id="projects-grid">
+            <a class="project-tile" href="https://codepen.io/natheraf/pen/BamKmGO" target="_blank">
+                <img class="img" alt="FCC assignment: Tribute Page"
+                    src="https://shots.codepen.io/natheraf/pen/BamKmGO-512.webp?version=1643951965">
+                <figcaption class="img-caption">FCC assignment: Tribute Page</figcaption>
+            </a>
+            <a class="project-tile" href="https://codepen.io/natheraf/pen/PoONemV" target="_blank">
+                <img class="img" alt="FCC assignment: Tribute Page"
+                    src="https://shots.codepen.io/natheraf/pen/PoONemV-512.webp?version=1643951955">
+                <figcaption class="img-caption">FCC assignment: Survey Form</figcaption>
+            </a>
+        </div>
+        <a id="profile-link" href="https://codepen.io/natheraf" target="_blank">More</a>
+    </div>
+    <div id="contact">
+        <h1 style="color: white; font-size: 60px;">Contact Me</h1>
+        <p style="color: white; margin-top: -40px; font-size: 20px;"><em>Let us get in touch</em></p>
+        <div id="links">
+            <a class="contact-methods" href="https://codepen.io/natheraf" target="_blank">
+                <img class="contact-img" alt="CodePen"
+                    src="https://blog.codepen.io/wp-content/uploads/2022/01/codepen-wordmark-display-inside-white@10x.png">
+            </a>
+            <a class="contact-methods" href="https://www.linkedin.com/in/eric-ma-8868241b6/" target="_blank">
+                <img class="contact-img" alt="CodePen"
+                    src="https://logos-download.com/wp-content/uploads/2016/03/LinkedIn_Logo_2019.png">
+            </a>
+            <a class="contact-methods" id="email" href="mailto:ma.eric11214@outlook.com"
+                target="_blank"><b>@Email</b></a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<style>
+    #main {
+        display: grid;
+        background: White;
+        justify-items: center;
+        grid-template-rows: 1fr;
+        margin-top: 50px;
+    }
+
+    #header-img {
+        width: 300px;
+        height: auto;
+        justify-self: start;
+    }
+
+    #nav-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: fixed;
+        background-color: Gold;
+        top: 0;
+        width: 100%;
+        height: 60px;
+    }
+
+    #nav-buttons {
+        display: grid;
+        justify-self: end;
+        grid-template-columns: 200px 220px 150px;
+    }
+
+    a:link {
+        color: black;
+    }
+
+    a:link {
+        text-decoration: none;
+    }
+
+    a:visited {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    a:active {
+        text-decoration: none;
+    }
+
+    #features {
+        display: grid;
+        grid-template-rows: 30px 1fr 30px 1fr 30px 100px;
+    }
+
+    #pricing {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+    }
+
+    #form {
+        display: grid;
+        justify-items: center;
+    }
+
+    #pricing-box {
+        margin: 10px;
+        width: 200px;
+        border-style: solid;
+        display: grid;
+        justify-items: center;
+        padding: 50px;
+        border-radius: 5px;
+        border-width: 1px;
+        grid-template-rows: 1fr auto 30px 30px 30px 70px;
+    }
+
+    #select-package-button-1 {
+        margin-bottom: -30px;
+    }
+
+    #package-title {
+        margin-top: -30px;
+    }
+
+    #footer {
+        background: grey;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 50px;
+    }
+
+    @media (max-width: 1000px) {
+        #nav-bar {
+            display: grid;
+            grid-template-rows: 1fr;
+            position: fixed;
+            background-color: Grey;
+            top: 0;
+            width: 100%;
+            height: 60px;
+        }
+
+        #nav-buttons {
+            display: grid;
+            justify-self: start;
+            grid-template-columns: 90px 135px 100px;
+        }
+
+        @media (max-width: 700px) {
+            #nav-bar {
+                display: grid;
+                grid-template-columns: 1fr;
+                position: fixed;
+                background-color: Yellow;
+                top: 0;
+                width: 100%;
+                height: 120px;
+                justify-items: center;
+            }
+
+            #nav-buttons {
+                display: grid;
+                justify-self: center;
+                grid-template-columns: 90px 135px 100px;
+            }
+
+            #main {
+                margin-top: 100px;
+            }
+        }
+    }
+</style>
+
+<html>
+<div id="header">
+    <nav id="nav-bar">
+        <figure>
+            <img id="header-img"
+                src="https://cdn.freecodecamp.org/testable-projects-fcc/images/product-landing-page-logo.png">
+        </figure>
+        <div id="nav-buttons">
+            <h3><a class="nav-link" href="#get-started-button">Features</a></h3>
+            <h3><a class="nav-link" href="#quality-assurance">How It Works</a></h3>
+            <h3><a class="nav-link" href="#pricing">Pricing</a></h3>
+        </div>
+    </nav>
+</div>
+<div id="main">
+    <h2><br>Handcrafted, home-made masterpieces</h2>
+    <form id="form" action="https://www.freecodecamp.com/email-submit">
+        <label id="email-label"><input id="email" type="email" placeholder="Enter your email address"
+                name="email"></label><br>
+        <label id="get-started-button"><button id="submit" type="submit">Get Started</button></label><br><br>
+    </form>
+    <div id="features">
+        <h2>Premium Materials</h2>
+        <p>Our trombones use the shiniest brass which is sourced locally. This will increase the longevity of your
+            purchase.</p>
+        <h2>Fast Shipping</h2>
+        <p>We make sure you recieve your trombone as soon as we have finished making it. We also provide free returns if
+            you are not satisfied.</p>
+        <h2>Quality Assurance</h2>
+        <p id="quality-assurance">For every purchase you make, we will ensure there are no damages or faults and we will
+            check and test the pitch of your instrument.</p>
+    </div>
+    <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/y8Yv4pnO7qc"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe><br>
+    <div id="pricing">
+        <div id="pricing-box">
+            <h3 id="package-title">TENOR TROMBONE</h3>
+            <h2>$600</h2>
+            <p>Lorem ipsum.</p>
+            <p>Lorem ipsum.</p>
+            <p>Lorem ipsum dolor.</p>
+            <p>Lorem ipsum.</p>
+            <button id="select-package-button-1">Select</button>
+        </div>
+        <div id="pricing-box">
+            <div id="lightgrey-background">
+                <h3 id="package-title">BASS TROMBONE</h3>
+            </div>
+            <h2>$900</h2>
+            <p>Lorem ipsum.</p>
+            <p>Lorem ipsum.</p>
+            <p>Lorem ipsum dolor.</p>
+            <p>Lorem ipsum.</p>
+            <button id="select-package-button-1">Select</button>
+        </div>
+        <div id="pricing-box">
+            <div id="lightgrey-background">
+                <h3 id="package-title">BASS TROMBONE</h3>
+            </div>
+            <h2>$1200</h2>
+            <p>Plays similar to a Trumpet</p>
+            <p>Great for Jazz Bands</p>
+            <p>Lorem ipsum dolor.</p>
+            <p>Lorem ipsum.</p>
+            <button id="select-package-button-1">Select</button>
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <p>Privacy</p>
+        <p>Terms</p>
+        <p>Contact</p>
+        <p>Copyright 2016, Original Trombones</p>
+    </div>
+</footer>
+
+</html>

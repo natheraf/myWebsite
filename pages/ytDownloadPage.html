@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Download Page</title>
+        <link rel="stylesheet" type="text/css" href="../styles/ytDownloadPage.css">
+        <script type="text/javascript" src="../scripts/ytUpdateDownloadStatus_ajax_solution.js"></script>
+    </head>
+
+    <body onload="on_download_page_load()">
+        <header>
+
+        </header>
+
+        <nav>
+            
+        </nav>
+        
+        <main>
+            <h2 id="warning"></h2>
+            <div id="download_form">
+                <form action="../scripts/ytCmdDownload.php" method="post" onsubmit="">
+                    <input type="text" id="ytURL" name="ytURL" placeholder="https://www.youtube.com/watch?v=...">
+                    <input type="submit" value="Submit" onclick="download_start()"><br>
+                    <label for="videoFormat"><input type="radio" id="videoFormat" name="format" value="videoFormat" checked>Video</label>
+                    <label for="audioFormat"><input type="radio" id="audioFormat" name="format" value="audioFormat">Audio</label>
+                    <label for="embedThumbnail"><input type="checkbox" id="embedThumbnail" name="embedThumbnail" value="embedThumbnail">Embed Thumbnail</label><br><br>
+                    <label for="multithreaded"><input type="checkbox" id="multithreaded" name="multithreaded" value="multithreaded" onchange="toggleMultithreadSettings()">Multithreaded Download</label><br>
+                    <div id="multithreadedArgs">
+                        <span>----------Multithreaded Arguments----------<br></span>
+                        <label for="maxConnPerServer">Max connections per server: </label><input type="text" id="maxConnPerServer" name="maxConnPerServer" placeholder="Default: 1"></label><br>
+                        <label for="split">Split: <input type="text" id="split" name="split" placeholder="Default: 5"></label><br>
+                        <label for="minSplitSize">Min split size: <input type="text" id="minSplitSize" name="minSplitSize" placeholder="(1M - 1024M) Default: 20M"></label><br><br>
+                        <label for="showExplanation"><input type="checkbox" id="showExplanation" name="showExplanation" value="showExplanation" onchange="toggleMTArgExplanation()">Show Argument Explanation</label>
+                        <div id="mTArgumentExplanation">
+                            <span>----------Argument Explanation----------<br></span>
+                            Max connections per server:<br>
+                            The maximum number of connections to one server for each download. Default: 1
+                            <br><br>
+                            Split:<br>
+                            Download a file using N connections. If more than N URIs are given, first N URIs are used and remaining URIs are used for backup. If less than N URIs are given, those URIs are used more than once so that N connections total are made simultaneously. The number of connections to the same host is restricted by the --max-connection-per-server option. See also the --min-split-size option. Default: 5
+                            <br><br>
+                            Min split size:<br>
+                            aria2 does not split less than 2*SIZE byte range. For example, let's consider downloading 20MiB file. If SIZE is 10M, aria2 can split file into 2 range [0-10MiB) and [10MiB-20MiB) and download it using 2 sources(if --split >= 2, of course). If SIZE is 15M, since 2*15M > 20MiB, aria2 does not split file and download it using 1 source. You can append K or M (1K = 1024, 1M = 1024K). Possible Values: 1M -1024M Default: 20M
+                        </div>
+                    </div><br>
+                    <input type="text" id="formatId" name="formatId" placeholder="Format ID (optional)">
+                </form><br>
+                <form action="../scripts/ytCmdFormat.php" method="post">
+                    <input type="text" id="ytURL" name="ytURL" placeholder="https://www.youtube.com/watch?v=...">
+                    <input type="submit" value="Show Format" onclick="document.getElementById('format_out').innerHTML = 'FORMATTING'">
+                </form>
+            </div>
+            <div id="format_out">
+
+            </div>
+            <h1 id="status"></h1>
+            <p id="output"></p>
+        </main>
+
+        <footer>
+
+        </footer>
+    </body>
+
+</html>

@@ -1,0 +1,158 @@
+#navbar {
+    background-color: #E63946;
+    display: grid;
+    grid-template-columns: 10fr .8fr 1fr;
+    justify-items: end;
+    position: fixed;
+    top: 0;
+    margin-left: -8px;
+    width: 100%;
+    height: 50px;
+}
+
+.nav-link {
+    font-family: monospace;
+    margin-top: 12px;
+    color: #1D3557;
+    font-size: 14pt;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+body {
+    background: #F1FAEE;
+}
+
+main {
+    font-family: monospace;
+}
+
+#welcome-section {
+    height: 100vh;
+    background: #1D3557;
+    margin: -8px -8px 8px -8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome-text {
+    color: #F1FAEE;
+    font-size: 60px;
+}
+
+#welcome-subtext {
+    color: #E63946;
+    font-size: 30px;
+    margin-top: -35px;
+}
+
+#projects {
+    margin: -8px -8px 8px -8px;
+    background: #F1FAEE;
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 1fr;
+}
+
+#about {
+    display: grid;
+    justify-items: center;
+}
+
+#about-p {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 70%;
+    font-size: x-large;
+    text-align: center;
+}
+
+.section-title {
+    color: #E63946;
+    font-size: 60px;
+}
+
+#projects-grid {
+    margin-top: 30px;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 1080px) {
+    #projects-grid {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-tile {
+    display: grid;
+    justify-items: center;
+    background: #1D3557;
+    padding: 10px;
+    border-radius: 5px;
+    border-width: 1px;
+    margin: 10px;
+}
+
+.img {
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+.img-caption {
+    color: #F1FAEE;
+    font-size: 20px;
+    margin: 15px 0px 15px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #E63946;
+    margin: -8px -8px -8px -8px;
+    padding: 0px 0px 8px 0px;
+    font-family: monospace;
+}
+
+#contact-title {
+    color: #F1FAEE; 
+    font-size: 60px;
+}
+
+#contact-subtext {
+    color: #F1FAEE;
+    margin-top: -40px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#contact-links {
+    display: grid;
+    grid-template-columns: 300px 250px 200px;
+    margin-left: -50px;
+}
+
+.contact-img {
+    width: auto;
+    height: 50px;
+}
+
+#email-contact-img {
+    color: #F1FAEE;
+    font-size: 45px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.section_spacer {
+    padding: 3em;
+}
