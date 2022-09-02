@@ -11,12 +11,12 @@ function on_download_page_load() {
 
 function download_start() {
     hideDownloadForm();
-    document.getElementById("status").innerHTML = "Status on load: BUSY";
+    document.getElementById("status").innerHTML = "Status on load: DOWNLOADING";
     document.getElementById("output").style.overflowY = "scroll";
 }
 
 function ajax_download_info() {
-    if (document.getElementById("status").innerHTML == "Status on load: BUSY") {
+    if (document.getElementById("status").innerHTML == "Status on load: DOWNLOADING") {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
