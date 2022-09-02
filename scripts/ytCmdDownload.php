@@ -45,9 +45,9 @@ if (file_get_contents('..\files\ytdownloads\status.txt') == 'idel') {
     shell_exec($cmd);
     $cmd = '"..\files\youtube-dl\yt-dlp" -U > ..\files\ytdownloads\stream.txt &';
     shell_exec($cmd);
-    $cmd = '"..\files\youtube-dl\yt-dlp" --rm-cache-dir --get-filename --write-info-json '.$tag.'-o "..\files\ytdownloads\%(title)s.%(ext)s" '.$ytURL.' > ..\files\ytdownloads\filename.txt &';
+    $cmd = '"..\files\youtube-dl\yt-dlp" --rm-cache-dir --restrict-filenames --get-filename --write-info-json '.$tag.'-o "..\files\ytdownloads\%(title)s.%(ext)s" '.$ytURL.' > ..\files\ytdownloads\filename.txt &';
     shell_exec($cmd);
-    $cmd = '"..\files\youtube-dl\yt-dlp" --rm-cache-dir '.$tag.'-o "..\files\ytdownloads\%(title)s.%(ext)s" '.$ytURL.' > ..\files\ytdownloads\stream.txt &';
+    $cmd = '"..\files\youtube-dl\yt-dlp" --rm-cache-dir --restrict-filenames '.$tag.'-o "..\files\ytdownloads\%(title)s.%(ext)s" '.$ytURL.' > ..\files\ytdownloads\stream.txt &';
     shell_exec($cmd);
     file_put_contents('..\files\ytdownloads\status.txt', 'idel');
     header('Location: ../pages/ytDownloadCompletePg.html');
