@@ -22,3 +22,8 @@
 #warning {
     color: red;
 }
+
+#output {
+    height: 60vh;
+    background-color: aqua;
+}

@@ -12,6 +12,7 @@ function on_download_page_load() {
 function download_start() {
     hideDownloadForm();
     document.getElementById("status").innerHTML = "Status on load: BUSY";
+    document.getElementById("output").style.overflowY = "scroll";
 }
 
 function ajax_download_info() {
@@ -26,7 +27,8 @@ function ajax_download_info() {
                     entireOutput = outputLoop; // sets entireOutput to the current iteration's output
                 }
                 if (outputBuffer != "") { // if outputBuffer is not empty (if there is a change in the output)
-                    document.getElementById("output").innerHTML += '<br>' + outputBuffer;
+                    document.getElementById("output").innerHTML = outputBuffer + '<br>' + document.getElementById("output").innerHTML;
+                    document.getElementById("output").scrollTo(top);
                 }
             }
         };
