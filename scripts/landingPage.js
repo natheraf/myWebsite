@@ -1,6 +1,7 @@
 function landingPageOnLoad() {
     generateMyPathHereGrid();
     generateContactLinks();
+    firstBackgroundImg();
 }
 
 function generateMyPathHereGrid() {
@@ -58,14 +59,85 @@ function generateContactLinks() {
     }
 }
 
+function firstBackgroundImg() {
+    document.getElementById("background-img").style.backgroundImage = "url(../public/background_imgs/transparentimg.png)";
+    setTimeout(showRandomBackgroundImg, 3000);
+}
+
+let prevImgIndex = -1;
+var tabbedOut = false;
+function imgObj(path, textColor, link) {
+    this.path = path;
+    this.textColor = textColor; // red #E63946, white #F1FAEE, lightest-blue #A8DADC, light-blue #457B9D, dark-blue #1D3557
+    this.link = link;
+}
+let imgs = [];
+imgs.push(new imgObj("../public/background_imgs/ice_clock.png", "#000000", "https://www.pixiv.net/en/artworks/88588892"));
+imgs.push(new imgObj("../public/background_imgs/Cafe_evening.png", "#1D3557", "https://www.pixiv.net/en/artworks/89360087"));
+imgs.push(new imgObj("../public/background_imgs/Crystal_Ferris_Wheel.png", "#A8DADC", "https://www.pixiv.net/en/artworks/81116740"));
+imgs.push(new imgObj("../public/background_imgs/S.J.L.jpg", "#A8DADC", "https://www.pixiv.net/en/artworks/80782568"));
+imgs.push(new imgObj("../public/background_imgs/Otsuka_Station.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/75041706"));
+imgs.push(new imgObj("../public/background_imgs/wayfarer.jpg", "#A8DADC", "https://www.pixiv.net/en/artworks/59801116"));
+imgs.push(new imgObj("../public/background_imgs/Blank_water.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/53929819"));
+imgs.push(new imgObj("../public/background_imgs/Landscape.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/40179800"));
+imgs.push(new imgObj("../public/background_imgs/Blooming_in_the_shade_of_a_tree.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/73497750"));
+imgs.push(new imgObj("../public/background_imgs/The_Guidance_of_Shrines.png", "#A8DADC", "https://www.pixiv.net/en/artworks/87938071"));
+imgs.push(new imgObj("../public/background_imgs/gallery.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/90828211"));
+imgs.push(new imgObj("../public/background_imgs/The_night_is_so_bright.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/94819531"));
+imgs.push(new imgObj("../public/background_imgs/Galaxy_full_of_stars.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/90209969"));
+imgs.push(new imgObj("../public/background_imgs/tide.png", "#F1FAEE", "https://www.pixiv.net/en/artworks/93727581"));
+imgs.push(new imgObj("../public/background_imgs/lavender.jpg", "#1D3557", "https://unsplash.com/"));
+imgs.push(new imgObj("../public/background_imgs/genshinFeast.jpg", "#457B9D", "https://www.pixiv.net/en/artworks/93526437"));
+imgs.push(new imgObj("../public/background_imgs/midnight_square.png", "#F1FAEE", "https://www.pixiv.net/en/artworks/94982142"));
+imgs.push(new imgObj("../public/background_imgs/City_of_Two_Hundred_Scenes_Pengcheng_at_Night.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/90899797"));
+imgs.push(new imgObj("../public/background_imgs/Rising_star.png", "#A8DADC", "https://www.pixiv.net/en/artworks/77981525"));
+imgs.push(new imgObj("../public/background_imgs/chair.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/24299378"));
+shuffle(imgs);
 function showRandomBackgroundImg() {
-    function imgObj(path, textColor) {
-        this.path = path;
-        this.textColor = textColor; // red #E63946, white #F1FAEE, lightest-blue #A8DADC, light-blue #457B9D, dark-blue #1D3557
+    if (!tabbedOut && checkVisible(document.getElementById("welcome-text"))) {
+        if (prevImgIndex >= imgs.length - 1) { // check if out of bounds
+            prevImgIndex = -1;
+        }
+        let index = ++prevImgIndex;
+        prevImgIndex = index;
+        const bgimg = imgs[index];
+        document.getElementById("welcome-text").style.color = bgimg.textColor;
+        document.getElementById("background-img").style.backgroundImage = "url(" + bgimg.path + ")";
     }
-    let imgs = [];
-    imgs.push(new imgObj("../public/background_imgs/lavender.jpg", "#1D3557"));
-    const bgimg = imgs[Math.floor(Math.random() * (imgs.length - 1))];
-    document.getElementById("welcome-text").style.color = bgimg.textColor;
-    document.getElementById("background-img").style.backgroundImage = "url(" + bgimg.path + ")";
+    setTimeout(showRandomBackgroundImg, 5000);
+}
+
+// stops slideshow when title not visible
+function checkVisible(elm) { // https://stackoverflow.com/questions/5353934/check-if-element-is-visible-on-screen
+    var rect = elm.getBoundingClientRect();
+    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+}
+
+// stops slideshow when tab out of visibility
+document.addEventListener('visibilitychange', function (event) {
+    if (document.hidden) {
+        tabbedOut = true;
+    } else {
+        tabbedOut = false;
+    }
+});
+
+// Knuth shuffle https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
 }
