@@ -1,3 +1,32 @@
+#navbar {
+    background-color: #1D3557;
+    display: grid;
+    grid-template-columns: .5fr 10fr .8fr 1fr;
+    justify-items: end;
+    position: fixed;
+    top: 0;
+    margin-left: -8px;
+    width: 100%;
+    height: 50px;
+}
+
+#nav-link-home {
+    justify-self: start;
+    height: 40px;
+    margin-top: -6px;
+}
+
+.nav-link {
+    font-family: monospace;
+    margin-top: 12px;
+    color: #E63946;
+    font-size: 14pt;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
 body {
     overflow: hidden;
     font-family: Verdana;
@@ -6,9 +35,11 @@ body {
 
 #loginFailed {
     color: #E63946;
-    position: relative;
+    position: absolute;
     text-align: center;
     background-color: #F1FAEE;
+    top: 55px;
+    width: 100%;
 }
 
 #main {
