@@ -59,12 +59,7 @@ function generateContactLinks() {
     }
 }
 
-function firstBackgroundImg() {
-    document.getElementById("background-img").style.backgroundImage = "url(../public/background_imgs/transparentimg.png)";
-    setTimeout(showRandomBackgroundImg, 3000);
-}
-
-let prevImgIndex = -1;
+let imgIndex = 0;
 var tabbedOut = false;
 function imgObj(path, textColor, link) {
     this.path = path;
@@ -95,16 +90,27 @@ imgs.push(new imgObj("../public/background_imgs/chair.jpg", "#1D3557", "https://
 shuffle(imgs);
 function showRandomBackgroundImg() {
     if (!tabbedOut && checkVisible(document.getElementById("welcome-text"))) {
-        if (prevImgIndex >= imgs.length - 1) { // check if out of bounds
-            prevImgIndex = -1;
+        if (imgIndex > imgs.length - 1) { // check if out of bounds
+            imgIndex = 0;
         }
-        let index = ++prevImgIndex;
-        prevImgIndex = index;
-        const bgimg = imgs[index];
+        const bgimg = imgs[imgIndex++];
         document.getElementById("welcome-text").style.color = bgimg.textColor;
         document.getElementById("background-img").style.backgroundImage = "url(" + bgimg.path + ")";
     }
+    setTimeout(cacheNextImg, 3500) // cache next image after showing/transitioning to the first one
     setTimeout(showRandomBackgroundImg, 5000);
+}
+
+function firstBackgroundImg() {
+    document.getElementById("background-img").style.backgroundImage = "url(../public/background_imgs/transparentimg.png)";
+    document.getElementById("next-background-img").style.backgroundImage = "url(" + imgs[imgIndex].path + ")"; // cache first image
+    setTimeout(showRandomBackgroundImg, 3000);
+}
+
+function cacheNextImg() { // cache next image
+    if (imgIndex <= imgs.length - 1) { 
+        document.getElementById("next-background-img").style.backgroundImage = "url(" + imgs[imgIndex].path + ")";
+    }
 }
 
 // stops slideshow when title not visible
