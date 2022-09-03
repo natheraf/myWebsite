@@ -3,9 +3,10 @@
     <head>
         <title>Landing Page</title>
         <link rel="stylesheet" type="text/css" href="../styles/landingPage.css">
+        <script type="text/javascript" src="../scripts/landingPage.js"></script>
     </head>
 
-    <body>
+    <body onload="landingPageOnLoad()">
         <header>
             Hi, I'm Eric. a web developer.
         </header>
@@ -25,7 +26,7 @@
                 <h1 class="section-title">Intro</h1>
                 <hr size="2px" width="70%" color="#1D3557">
                 <p id="about-p">
-                    Hello, my name is Eric Ma. I love reading, gaming, and coding. This website is a place to showcase my projects and interests. Login for more features. Feel free to look around!
+                    Hi. My name is Eric Ma. I love reading light novels, playing video games, and tinkering with technology. This website is a place for me to post about the things I love and little projects I have made. Feel free to look around and make yourself at home. 
                 </p>
             </div>
             <div class="section_spacer"></div>
@@ -33,36 +34,18 @@
                 <h1 class="section-title">My path here</h1>
                 <hr size="2px" width="70%" color="#1D3557">
                 <div id="projects-grid">
-                    <a class="project-tile" href="https://codepen.io/natheraf/pen/BamKmGO" target="_blank">
-                        <img class="img" alt="FCC assignment: Tribute Page"
-                            src="https://shots.codepen.io/natheraf/pen/BamKmGO-512.webp?version=1643951965">
-                        <figcaption class="img-caption">FCC assignment: Tribute Page</figcaption>
-                    </a>
-                    <a class="project-tile" href="https://codepen.io/natheraf/pen/PoONemV" target="_blank">
-                        <img class="img" alt="FCC assignment: Tribute Page"
-                            src="https://shots.codepen.io/natheraf/pen/PoONemV-512.webp?version=1643951955">
-                        <figcaption class="img-caption">FCC assignment: Survey Form</figcaption>
-                    </a>
+                    
                 </div>
-                <a id="profile-link" href="https://codepen.io/natheraf" target="_blank">More</a>
+                <a id="more-btn" href="https://codepen.io/natheraf" target="_blank">More</a>
             </div>
         </main>
         <div class="section_spacer"></div>
         <footer>
             <div id="contact">
-                <h1 id="contact-title">Contact Me</h1>
-                <p id="contact-subtext"><em>Let us get in touch</em></p>
+                <h1 id="contact-title">My links</h1>
+                <p id="contact-subtext"><em>Feel free to reach out</em></p>
                 <div id="contact-links">
-                    <a class="contact-methods" href="https://codepen.io/natheraf" target="_blank">
-                        <img class="contact-img" alt="CodePen"
-                            src="https://blog.codepen.io/wp-content/uploads/2022/01/codepen-wordmark-display-inside-white@10x.png">
-                    </a>
-                    <a class="contact-methods" href="https://www.linkedin.com/in/eric-ma-8868241b6/" target="_blank">
-                        <img class="contact-img" alt="CodePen"
-                            src="https://logos-download.com/wp-content/uploads/2016/03/LinkedIn_Logo_2019.png">
-                    </a>
-                    <a class="contact-methods" id="email-contact-img" href="mailto:ma.eric11214@outlook.com"
-                        target="_blank"><b>@Email</b></a>
+                    
                 </div>
             </div>
         </footer>
