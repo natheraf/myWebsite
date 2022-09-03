@@ -1,1 +1,2 @@
-
+make all pages responsive to all screen sizes
+populate about page
