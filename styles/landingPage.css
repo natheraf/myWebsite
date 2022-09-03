@@ -89,7 +89,25 @@ main {
     margin-top: -35px;
 }
 
-#projects {
+#img-source-btn {
+    border: 2px  #1D3557;
+    border-radius: 5px;
+    background-color: #F1FAEE;
+    color: #A8DADC;
+    font-size: large;
+    font-weight: 700;
+    width: 10%;
+    padding: 5px 0px 5px 0px;
+    margin-bottom: .5em;
+}
+
+#img-source-btn:hover {
+    color: #F1FAEE;
+    border-radius: 5px;
+    background-color: #A8DADC;
+}
+
+#history {
     margin: -8px -8px 8px -8px;
     background: #F1FAEE;
     display: grid;
@@ -114,7 +132,7 @@ main {
     font-size: 60px;
 }
 
-#projects-grid {
+#history-grid {
     margin-top: 30px;
     display: grid;
     justify-items: center;
@@ -122,7 +140,7 @@ main {
 }
 
 @media (max-width: 1080px) {
-    #projects-grid {
+    #history-grid {
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr;
     }

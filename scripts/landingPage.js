@@ -29,7 +29,7 @@ function generateMyPathHereGrid() {
     ]; // figcaptions and alt for imgs
     // i guess i can create objects, but i'll do this first because it is how i first envisioned it.
     for (let i = links.length - 1; i >= 0 ; i--) {
-        document.getElementById("projects-grid").innerHTML += '<a class="project-tile" href="' + links[i] + '" target="_blank"><img class="img" alt="' + figcaptions[i] + '" src="' + thumbnailImgs[i] + '"><figcaption class="img-caption">' + figcaptions[i] + '</figcaption></a>'
+        document.getElementById("history-grid").innerHTML += '<a class="project-tile" href="' + links[i] + '" target="_blank"><img class="img" alt="' + figcaptions[i] + '" src="' + thumbnailImgs[i] + '"><figcaption class="img-caption">' + figcaptions[i] + '</figcaption></a>'
     }
 }
 
@@ -82,7 +82,7 @@ imgs.push(new imgObj("../public/background_imgs/The_night_is_so_bright.jpg", "#F
 imgs.push(new imgObj("../public/background_imgs/Galaxy_full_of_stars.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/90209969"));
 imgs.push(new imgObj("../public/background_imgs/tide.png", "#F1FAEE", "https://www.pixiv.net/en/artworks/93727581"));
 imgs.push(new imgObj("../public/background_imgs/lavender.jpg", "#1D3557", "https://unsplash.com/"));
-imgs.push(new imgObj("../public/background_imgs/genshinFeast.jpg", "#457B9D", "https://www.pixiv.net/en/artworks/93526437"));
+imgs.push(new imgObj("../public/background_imgs/genshinFeast.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/93526437"));
 imgs.push(new imgObj("../public/background_imgs/midnight_square.png", "#F1FAEE", "https://www.pixiv.net/en/artworks/94982142"));
 imgs.push(new imgObj("../public/background_imgs/City_of_Two_Hundred_Scenes_Pengcheng_at_Night.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/90899797"));
 imgs.push(new imgObj("../public/background_imgs/Rising_star.png", "#A8DADC", "https://www.pixiv.net/en/artworks/77981525"));
@@ -96,6 +96,7 @@ function showRandomBackgroundImg() {
         const bgimg = imgs[imgIndex++];
         document.getElementById("welcome-text").style.color = bgimg.textColor;
         document.getElementById("background-img").style.backgroundImage = "url(" + bgimg.path + ")";
+        document.getElementById("img-source-btn").onclick = () => {window.open(bgimg.link, '_blank')};
     }
     setTimeout(cacheNextImg, 3500) // cache next image after showing/transitioning to the first one
     setTimeout(showRandomBackgroundImg, 5000);
