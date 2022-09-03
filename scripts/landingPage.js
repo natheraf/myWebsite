@@ -57,3 +57,15 @@ function generateContactLinks() {
         document.getElementById("contact-links").innerHTML += '<a class="contact-methods" href="' + links[i].link + '" target="_blank"><img class="contact-img" alt="' + links[i].alt + '" src="' + links[i].img + '"></a>'
     }
 }
+
+function showRandomBackgroundImg() {
+    function imgObj(path, textColor) {
+        this.path = path;
+        this.textColor = textColor; // red #E63946, white #F1FAEE, lightest-blue #A8DADC, light-blue #457B9D, dark-blue #1D3557
+    }
+    let imgs = [];
+    imgs.push(new imgObj("../public/background_imgs/lavender.jpg", "#1D3557"));
+    const bgimg = imgs[Math.floor(Math.random() * (imgs.length - 1))];
+    document.getElementById("welcome-text").style.color = bgimg.textColor;
+    document.getElementById("background-img").style.backgroundImage = "url(" + bgimg.path + ")";
+}
