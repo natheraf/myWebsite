@@ -1,1 +1,28 @@
+body {
+    background-color: #F1FAEE;
+}
 
+main {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section-spacer {
+    padding: 1em;
+}
+
+.section-title {
+    color: #E63946;
+    font-size: 60px;
+}
+
+.grid-center {
+    display: grid;
+    justify-items: center;
+}
+
+.about-p {
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    width: 50%;
+    font-size: x-large;
+    text-indent: 2em;
+}
