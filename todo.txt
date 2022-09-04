@@ -1,2 +1,5 @@
 make all pages responsive to all screen sizes
 populate about page
+use Navigator to improve low end experiences
+CSS for media download page
+yt dlp supported sites full list: https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md
