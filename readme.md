@@ -1,2 +1,2 @@
 # myWebsite
-ericma.net
+https://ericma.net/
