@@ -1,4 +1,5 @@
 function landingPageOnLoad() {
+    generateMyProjectsAndAppsGrid();
     generateMyPathHereGrid();
     generateContactLinks();
     firstBackgroundImg();
@@ -29,7 +30,7 @@ function generateMyPathHereGrid() {
     ]; // figcaptions and alt for imgs
     // i guess i can create objects, but i'll do this first because it is how i first envisioned it.
     for (let i = links.length - 1; i >= 0 ; i--) {
-        document.getElementById("history-grid").innerHTML += '<a class="project-tile" href="' + links[i] + '" target="_blank"><img class="img" alt="' + figcaptions[i] + '" src="' + thumbnailImgs[i] + '"><figcaption class="img-caption">' + figcaptions[i] + '</figcaption></a>'
+        document.getElementById("history-grid").innerHTML += '<a class="project-tile" href="' + links[i] + '" target="_blank"><img class="img" alt="' + figcaptions[i] + '" src="' + thumbnailImgs[i] + '"><figcaption class="history-img-caption">' + figcaptions[i] + '</figcaption></a>'
     }
 }
 
@@ -56,6 +57,19 @@ function generateContactLinks() {
     
     for (let i = 0; i < links.length; i++) {
         document.getElementById("contact-links").innerHTML += '<a class="contact-methods" href="' + links[i].link + '" target="_blank"><img class="contact-img" alt="' + links[i].alt + '" src="' + links[i].img + '"></a>'
+    }
+}
+
+function generateMyProjectsAndAppsGrid() {
+    function app(img, link, alt) {
+        this.img = img;
+        this.link = link;
+        this.alt = alt;
+    }
+    let apps = [];
+    apps.push(new app("../public/download-app-img.png", "../pages/ytDownloadPage.html", "Media Downloader"));
+    for (let i = 0; i < apps.length; i++) {
+        document.getElementById("projects_apps_grid").innerHTML += '<a class="apps-link" href="' + apps[i].link + '" target="_blank"><img class="apps-img" alt="' + apps[i].alt + '" src="' + apps[i].img + '"><h3 class="apps-img-caption">' + apps[i].alt + '</h3></a>';
     }
 }
 

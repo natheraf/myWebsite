@@ -107,6 +107,36 @@ main {
     background-color: #A8DADC;
 }
 
+#projects_apps {
+    display: grid;
+    justify-items: center;
+}
+
+#projects_apps_grid {
+    display: grid;
+    justify-items: center;
+}
+
+.apps-link {
+    margin-top: 2em;
+    display: grid;
+    justify-items: center;
+}
+
+.apps-img {
+    width: 5em;
+}
+
+.apps-img-caption {
+    color: #E63946;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 15px 0px 15px 0;
+    width: min-content;
+    text-align: center;
+    font-family: monospace;
+}
+
 #history {
     margin: -8px -8px 8px -8px;
     background: #F1FAEE;
@@ -161,7 +191,7 @@ main {
     border-width: 1px;
 }
 
-.img-caption {
+.history-img-caption {
     color: #F1FAEE;
     font-size: 20px;
     margin: 15px 0px 15px 0;
