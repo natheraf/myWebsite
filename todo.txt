@@ -1,6 +1,12 @@
+done 
+use Navigator to improve low end experiences
+
+troubleshoot
+firefox animations and transitions not working
+
+new features
 make all pages responsive to all screen sizes
 populate about page with music and pictures
-use Navigator to improve low end experiences
 CSS for media download page
 add instructions/readme for media downloader
 yt dlp supported sites full list: https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md
