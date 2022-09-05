@@ -81,26 +81,22 @@ function imgObj(path, textColor, link) {
     this.link = link;
 }
 let imgs = [];
-imgs.push(new imgObj("../public/background_imgs/ice_clock.png", "#000000", "https://www.pixiv.net/en/artworks/88588892"));
-imgs.push(new imgObj("../public/background_imgs/Cafe_evening.png", "#1D3557", "https://www.pixiv.net/en/artworks/89360087"));
-imgs.push(new imgObj("../public/background_imgs/Crystal_Ferris_Wheel.png", "#A8DADC", "https://www.pixiv.net/en/artworks/81116740"));
-imgs.push(new imgObj("../public/background_imgs/S.J.L.jpg", "#A8DADC", "https://www.pixiv.net/en/artworks/80782568"));
-imgs.push(new imgObj("../public/background_imgs/Otsuka_Station.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/75041706"));
-imgs.push(new imgObj("../public/background_imgs/wayfarer.jpg", "#A8DADC", "https://www.pixiv.net/en/artworks/59801116"));
-imgs.push(new imgObj("../public/background_imgs/Blank_water.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/53929819"));
-imgs.push(new imgObj("../public/background_imgs/Landscape.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/40179800"));
-imgs.push(new imgObj("../public/background_imgs/Blooming_in_the_shade_of_a_tree.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/73497750"));
-imgs.push(new imgObj("../public/background_imgs/The_Guidance_of_Shrines.png", "#A8DADC", "https://www.pixiv.net/en/artworks/87938071"));
-imgs.push(new imgObj("../public/background_imgs/gallery.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/90828211"));
-imgs.push(new imgObj("../public/background_imgs/The_night_is_so_bright.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/94819531"));
-imgs.push(new imgObj("../public/background_imgs/Galaxy_full_of_stars.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/90209969"));
-imgs.push(new imgObj("../public/background_imgs/tide.png", "#F1FAEE", "https://www.pixiv.net/en/artworks/93727581"));
-imgs.push(new imgObj("../public/background_imgs/lavender.jpg", "#1D3557", "https://unsplash.com/"));
-imgs.push(new imgObj("../public/background_imgs/genshinFeast.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/93526437"));
-imgs.push(new imgObj("../public/background_imgs/midnight_square.png", "#F1FAEE", "https://www.pixiv.net/en/artworks/94982142"));
-imgs.push(new imgObj("../public/background_imgs/City_of_Two_Hundred_Scenes_Pengcheng_at_Night.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/90899797"));
-imgs.push(new imgObj("../public/background_imgs/Rising_star.png", "#A8DADC", "https://www.pixiv.net/en/artworks/77981525"));
-imgs.push(new imgObj("../public/background_imgs/chair.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/24299378"));
+let navUA = window.navigator.userAgent;
+let navConnnectionAvailable =  navUA.includes("Chrome") || navUA.includes("Edg") || navUA.includes("OPR"); // false if on FireFox or Safari
+
+if (navConnnectionAvailable) {
+    console.log(navigator.connection);
+    if(navigator.connection.downlink > 4) {
+        imgs = getArrayOfImages("../public/background_imgs/originalQ/"); // returns array with original quality imgs
+    } else if (navigator.connection.downlink > 2) {
+        imgs = getArrayOfImages("../public/background_imgs/standardQ/"); // returns array with standard quality imgs
+    } else {
+        imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
+    }
+} else { // if user using FireFox or Safari, use low quality images
+    imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
+}
+
 shuffle(imgs);
 function showRandomBackgroundImg() {
     if (!tabbedOut && checkVisible(document.getElementById("welcome-text"))) {
@@ -112,7 +108,7 @@ function showRandomBackgroundImg() {
         document.getElementById("background-img").style.backgroundImage = "url(" + bgimg.path + ")";
         document.getElementById("img-source-btn").onclick = () => {window.open(bgimg.link, '_blank')};
     }
-    setTimeout(cacheNextImg, 3500) // cache next image after showing/transitioning to the first one
+    setTimeout(cacheNextImg, 2500) // cache next image after showing/transitioning to the first one
     setTimeout(showRandomBackgroundImg, 5000);
 }
 
@@ -161,4 +157,29 @@ function shuffle(array) {
     }
   
     return array;
+}
+
+function getArrayOfImages(path) {
+    let tempArr = [];
+    tempArr.push(new imgObj(path + "ice_clock.jpg", "#000000", "https://www.pixiv.net/en/artworks/88588892"));
+    tempArr.push(new imgObj(path + "Cafe_evening.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/89360087"));
+    tempArr.push(new imgObj(path + "Crystal_Ferris_Wheel.jpg", "#A8DADC", "https://www.pixiv.net/en/artworks/81116740"));
+    tempArr.push(new imgObj(path + "S.J.L.jpg", "#A8DADC", "https://www.pixiv.net/en/artworks/80782568"));
+    tempArr.push(new imgObj(path + "Otsuka_Station.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/75041706"));
+    tempArr.push(new imgObj(path + "wayfarer.jpg", "#A8DADC", "https://www.pixiv.net/en/artworks/59801116"));
+    tempArr.push(new imgObj(path + "Blank_water.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/53929819"));
+    tempArr.push(new imgObj(path + "Landscape.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/40179800"));
+    tempArr.push(new imgObj(path + "Blooming_in_the_shade_of_a_tree.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/73497750"));
+    tempArr.push(new imgObj(path + "The_Guidance_of_Shrines.jpg", "#A8DADC", "https://www.pixiv.net/en/artworks/87938071"));
+    tempArr.push(new imgObj(path + "gallery.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/90828211"));
+    tempArr.push(new imgObj(path + "The_night_is_so_bright.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/94819531"));
+    tempArr.push(new imgObj(path + "Galaxy_full_of_stars.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/90209969"));
+    tempArr.push(new imgObj(path + "tide.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/93727581"));
+    tempArr.push(new imgObj(path + "lavender.jpg", "#1D3557", "https://unsplash.com/"));
+    tempArr.push(new imgObj(path + "genshinFeast.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/93526437"));
+    tempArr.push(new imgObj(path + "midnight_square.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/94982142"));
+    tempArr.push(new imgObj(path + "City_of_Two_Hundred_Scenes_Pengcheng_at_Night.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/90899797"));
+    tempArr.push(new imgObj(path + "Rising_star.jpg", "#A8DADC", "https://www.pixiv.net/en/artworks/77981525"));
+    tempArr.push(new imgObj(path + "chair.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/24299378"));
+    return tempArr;
 }

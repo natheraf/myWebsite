@@ -47,8 +47,8 @@ main {
     background-size: cover;
     background-position: center;
     top: 40px;
-    visibility: hidden;
-    /* z-index: 10; */
+    /* visibility: hidden; */
+    z-index: 10;
 }
 
 @keyframes fadein {
