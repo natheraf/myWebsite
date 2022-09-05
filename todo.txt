@@ -10,3 +10,6 @@ populate about page with music and pictures
 CSS for media download page
 add instructions/readme for media downloader
 yt dlp supported sites full list: https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md
+
+notes
+network info still shown in landing page
