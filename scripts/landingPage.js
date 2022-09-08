@@ -86,22 +86,24 @@ let navConnnectionAvailable =  navUA.includes("Chrome") || navUA.includes("Edg")
 
 if (navConnnectionAvailable) {
     console.log(navigator.connection);
-    if(navigator.connection.downlink > 4) {
-        imgs = getArrayOfImages("../public/background_imgs/originalQ/"); // returns array with original quality imgs
-    } else if (navigator.connection.downlink > 2) {
-        imgs = getArrayOfImages("../public/background_imgs/standardQ/"); // returns array with standard quality imgs
-    } else {
-        imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
-    }
 
-    // alternative profiling
-    // if (navigator.connection.effectiveType == '4g' || navigator.connection.effectiveType == '3g') {
+    // old profiling
+    // if(navigator.connection.downlink > 4) {
     //     imgs = getArrayOfImages("../public/background_imgs/originalQ/"); // returns array with original quality imgs
-    // } else if (navigator.connection.effectiveType == '2g') {
-    //     imgs = getArrayOfImages("../public/background_imgs/standardQ/"); // returns array with low quality imgs
+    // } else if (navigator.connection.downlink > 2) {
+    //     imgs = getArrayOfImages("../public/background_imgs/standardQ/"); // returns array with standard quality imgs
     // } else {
     //     imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
     // }
+
+    // alternative profiling
+    if (navigator.connection.effectiveType == '4g' || navigator.connection.effectiveType == '3g') {
+        imgs = getArrayOfImages("../public/background_imgs/originalQ/"); // returns array with original quality imgs
+    } else if (navigator.connection.effectiveType == '2g') {
+        imgs = getArrayOfImages("../public/background_imgs/standardQ/"); // returns array with low quality imgs
+    } else {
+        imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
+    }
 
 } else { // if user using FireFox or Safari, use low quality images
     imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
