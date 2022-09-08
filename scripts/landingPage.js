@@ -88,22 +88,24 @@ if (navConnnectionAvailable) {
     console.log(navigator.connection);
 
     // old profiling
-    // if(navigator.connection.downlink > 4) {
-    //     imgs = getArrayOfImages("../public/background_imgs/originalQ/"); // returns array with original quality imgs
-    // } else if (navigator.connection.downlink > 2) {
-    //     imgs = getArrayOfImages("../public/background_imgs/standardQ/"); // returns array with standard quality imgs
-    // } else {
-    //     imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
-    // }
-
-    // alternative profiling
-    if (navigator.connection.effectiveType == '4g' || navigator.connection.effectiveType == '3g') {
+    if(navigator.connection.downlink > 4) {
         imgs = getArrayOfImages("../public/background_imgs/originalQ/"); // returns array with original quality imgs
-    } else if (navigator.connection.effectiveType == '2g') {
-        imgs = getArrayOfImages("../public/background_imgs/standardQ/"); // returns array with low quality imgs
+    } else if (navigator.connection.downlink > 2) {
+        imgs = getArrayOfImages("../public/background_imgs/standardQ/"); // returns array with standard quality imgs
     } else {
         imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
     }
+
+    // alternative profiling
+    // if (navigator.connection.effectiveType == '4g') {
+    //     imgs = getArrayOfImages("../public/background_imgs/originalQ/"); // returns array with original quality imgs
+    // } else if (navigator.connection.effectiveType == 'NaN') {
+    //     imgs = getArrayOfImages("../public/background_imgs/standardQ/"); // returns array with standard quality imgs
+    // } else if (navigator.connection.effectiveType == '2g' || navigator.connection.effectiveType == '3g') {
+    //     imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
+    // } else {
+    //     console.log('no imgs. network too slow');
+    // }
 
 } else { // if user using FireFox or Safari, use low quality images
     imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
