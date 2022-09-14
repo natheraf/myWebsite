@@ -95,7 +95,7 @@ if (navConnnectionAvailable) {
     } else if (navigator.connection.downlink > 2) {
         imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
     } else {
-        imgs = getArrayOfImages("../public/background_imgs/worseQ/") // returns array with worse quality imgs
+        imgs = getArrayOfWorseQImages("../public/background_imgs/worseQ/") // returns array with worse quality imgs
     }
 
     // alternative profiling
@@ -197,5 +197,11 @@ function getArrayOfImages(path) {
     tempArr.push(new imgObj(path + "City_of_Two_Hundred_Scenes_Pengcheng_at_Night.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/90899797"));
     tempArr.push(new imgObj(path + "Rising_star.jpg", "#A8DADC", "https://www.pixiv.net/en/artworks/77981525"));
     tempArr.push(new imgObj(path + "chair.jpg", "#1D3557", "https://www.pixiv.net/en/artworks/24299378"));
+    return tempArr;
+}
+
+function getArrayOfWorseQImages(path) {
+    let tempArr = [];
+    tempArr.push(new imgObj(path + "The_night_is_so_bright.jpg", "#F1FAEE", "https://www.pixiv.net/en/artworks/94819531"));
     return tempArr;
 }
