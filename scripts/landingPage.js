@@ -88,12 +88,14 @@ if (navConnnectionAvailable) {
     console.log(navigator.connection);
 
     // old profiling
-    if(navigator.connection.downlink > 4) {
+    if(navigator.connection.downlink > 8) {
         imgs = getArrayOfImages("../public/background_imgs/originalQ/"); // returns array with original quality imgs
-    } else if (navigator.connection.downlink > 2) {
+    } else if (navigator.connection.downlink > 5) {
         imgs = getArrayOfImages("../public/background_imgs/standardQ/"); // returns array with standard quality imgs
-    } else {
+    } else if (navigator.connection.downlink > 2) {
         imgs = getArrayOfImages("../public/background_imgs/lowQ/"); // returns array with low quality imgs
+    } else {
+        imgs = getArrayOfImages("../public/background_imgs/worseQ/") // returns array with worse quality imgs
     }
 
     // alternative profiling
