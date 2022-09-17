@@ -1,0 +1,42 @@
+body {
+    margin-top: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#chat {
+    max-width: 1000px;
+    height: 60vh;
+    overflow-y: scroll;
+}
+
+.chat_name {
+    font-size: x-large;
+}
+
+.chat_timestamp {
+    font-size: medium;
+}
+
+.chat_text {
+    font-size: larger;
+}
+
+#username {
+    font-size: inherit;
+}
+
+#input_text {
+    width: 100%;
+    max-width: 1000px;
+    font-size: inherit;
+}
+
+.button {
+    font-size: inherit;
+    width: 100%;
+}
+
+#form {
+    font-size: 20px;
+    max-width: 1000px;
+}
