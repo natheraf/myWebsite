@@ -7,18 +7,19 @@
     top: 0;
     margin-left: -8px;
     width: 100%;
-    height: 6.5%;
+    height: 5%;
+    align-items: center;
+    justify-content: center;
 }
 
 #nav-link-home {
     justify-self: start;
     height: 40px;
-    margin-top: -6px;
+    margin-top: 5px;
 }
 
 .nav-link {
     font-family: monospace;
-    margin-top: 12px;
     color: #1D3557;
     font-size: 14pt;
     margin-right: 20px;

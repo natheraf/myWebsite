@@ -31,11 +31,12 @@ function updateChat() {
     if (!tabbedOut) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
+            if (this.readyState == 4 && this.status == 200) { 
                 newlog = this.responseText;
+                console.log(chatlog != newlog);
                 if (chatlog != newlog) {
-                    document.getElementById('chat').innerHTML = this.responseText;
                     chatlog = newlog;
+                    document.getElementById('chat').innerHTML = this.responseText;
                     document.getElementById('chat').scrollTo(0, document.getElementById('chat').scrollHeight) // scrolls to bottom, source: https://stackoverflow.com/questions/11715646/scroll-automatically-to-the-bottom-of-the-page
                 }
             }
