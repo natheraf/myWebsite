@@ -20,7 +20,17 @@
             <h2 id="warning"></h2>
             <div id="download_form">
                 <form action="../scripts/ytCmdDownload.php" method="post" onsubmit="">
-                    <input type="text" id="ytURL" name="ytURL" placeholder="https://www.youtube.com/watch?v=...">
+                    <label for="showHelp"><input id="showHelp" type="checkbox" onchange="toggleShowHelp()" checked>Show Help</label>
+                    <div id="helpDiv">
+                        <div>This site is a web api for youtube-dl and yt-dlp.</div><br>
+                        <div><a href="https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md" target="_blank">Full list of supported sites</a></div><br>
+                        <div>Only one download can happen at a time.</div>
+                        <div>If the load status is busy, please wait until the other user's download is finished.</div>
+                        <div>The output/prograss of the other user's or your download can be seen on this page.</div>
+                        <div>The status is only updated on load. So if the status is busy, please refresh the page for an update.</div><br>
+                    </div>
+                    <br>
+                    <label>Media URL: <input type="text" id="ytURL" name="ytURL" placeholder="https://www.youtube.com/watch?v=..."></label>
                     <input type="submit" value="Submit" onclick="download_start()"><br>
                     <label for="videoFormat"><input type="radio" id="videoFormat" name="format" value="videoFormat" checked>Video</label>
                     <label for="audioFormat"><input type="radio" id="audioFormat" name="format" value="audioFormat">Audio</label>

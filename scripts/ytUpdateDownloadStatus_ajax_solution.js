@@ -70,6 +70,16 @@ function toggleMTArgExplanation() {
     }
 }
 
+function toggleShowHelp() {
+    if (document.getElementById("showHelp").checked) {
+        document.getElementById("helpDiv").style.visibility = 'visible';
+        document.getElementById("helpDiv").style.height = 'auto';
+    } else {
+        document.getElementById("helpDiv").style.visibility = 'hidden';
+        document.getElementById("helpDiv").style.height = '0';
+    }
+}
+
 function onDownloadCompletePageLoad() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {

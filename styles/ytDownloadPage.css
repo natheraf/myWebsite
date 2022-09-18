@@ -4,6 +4,12 @@
     width: 400px;
 }
 
+#helpDiv {
+    visibility: visible;
+    height: auto;
+    width: 400px;
+}
+
 #mTArgumentExplanation {
     visibility: hidden;
     height: 0px;
