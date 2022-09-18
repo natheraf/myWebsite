@@ -132,7 +132,7 @@ main {
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     margin: 15px 0px 15px 0;
-    width: min-content;
+    width: 75%;
     text-align: center;
     font-family: monospace;
 }

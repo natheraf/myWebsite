@@ -67,7 +67,7 @@ function generateMyProjectsAndAppsGrid() {
         this.alt = alt;
     }
     let apps = [];
-    apps.push(new app("../public/download-app-img.png", "../pages/ytDownloadPage.html", "Media Downloader"));
+    apps.push(new app("../public/download-app-img.png", "../pages/ytDownloadPage.html", "Media Downloader (youtube-dl)"));
     for (let i = 0; i < apps.length; i++) {
         document.getElementById("projects_apps_grid").innerHTML += '<a class="apps-link" href="' + apps[i].link + '" target="_blank"><img class="apps-img" alt="' + apps[i].alt + '" src="' + apps[i].img + '"><h3 class="apps-img-caption">' + apps[i].alt + '</h3></a>';
     }
