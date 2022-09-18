@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Live Chat</title>
+        <link rel="icon" href="../public/icon_invert_cropped.png">
+        <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
+        <link rel="stylesheet" type="text/css" href="../styles/livechat.css">
+        <script type="text/javascript" src="../scripts/livechat.js"></script>
+    </head>
+
+    <body onload="onload()">
+        <header>
+
+        </header>
+
+        <nav id="navbar">
+            <a class="nav-link" href="landingpage.html">
+                <img id="nav-link-home" src="../public/icon-long.png" alt="home">
+            </a>
+            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="loginpage.html">Login</a>
+            <a class="nav-link" href="register.html">Register</a>
+        </nav>
+        
+        <main>
+            <p id="chat"></p>
+            <div id="form">
+                <label for="username" class="text_label">Name: <input id="username" name="username" type="text" required></label>
+                <br><br>
+                <label for="input_text" class="text_label">Text: <br><textarea id="input_text" name="input" rows="4" required></textarea>
+                <br>
+                <input id="submit_button" class="button" type="button" value="Submit" onclick="submitChat()">
+    
+                <br><br>
+    
+                <form onsubmit="return chatResetPassword()" method="post" action="../scripts/livechatreset.php">
+                    <input class="button" type="submit" value="Reset Chat">
+                </form>
+            </div>
+        </main>
+
+        <footer>
+
+        </footer>
+    </body>
+
+</html>
