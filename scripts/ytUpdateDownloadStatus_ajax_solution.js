@@ -3,7 +3,7 @@ var outputLoop = ""; // takes entire output from current loop
 var outputBuffer = ""; // holds the difference between the current output and the previous output
 
 function on_download_page_load() {
-    showDownloadForm();
+    // showDownloadForm(); #change1
     ajax_download_info();
     check_if_status();
     check_if_busy()

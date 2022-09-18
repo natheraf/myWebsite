@@ -1,3 +1,7 @@
+main {
+    /* top: 100px; */
+}
+
 #multithreadedArgs {
     visibility: hidden;
     height: 0px;
@@ -20,10 +24,10 @@
     height: 0px;
 }
 
-#download_form {
+/* #download_form { #change1
     visibility: hidden;
     height: 0px;
-}
+} */
 
 #warning {
     color: red;
