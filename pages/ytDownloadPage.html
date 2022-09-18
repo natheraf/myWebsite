@@ -7,73 +7,75 @@
         <link rel="stylesheet" type="text/css" href="../styles/ytDownloadPage.css">
         <script type="text/javascript" src="../scripts/ytUpdateDownloadStatus_ajax_solution.js"></script>
     </head>
+    
+    <nav id="navbar">
+        <a class="nav-link" href="landingpage.html">
+            <img id="nav-link-home" src="../public/icon-long-red.png" alt="home">
+        </a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="loginpage.html">Login</a>
+        <a class="nav-link" href="register.html">Register</a>
+    </nav>
 
     <body onload="on_download_page_load()">
         <header>
 
         </header>
 
-        <nav id="navbar">
-            <a class="nav-link" href="landingpage.html">
-                <img id="nav-link-home" src="../public/icon-long.png" alt="home">
-            </a>
-            <a class="nav-link" href="about.html">About</a>
-            <a class="nav-link" href="loginpage.html">Login</a>
-            <a class="nav-link" href="register.html">Register</a>
-        </nav>
-        
         <main>
-            <h2 id="warning"></h2>
-            <div id="download_form">
-                <form action="../scripts/ytCmdDownload.php" method="post" onsubmit="">
-                    <label for="showHelp"><input id="showHelp" type="checkbox" onchange="toggleShowHelp()" checked>Show Help</label>
-                    <div id="helpDiv">
-                        <div>This site is a web api for youtube-dl and yt-dlp.</div><br>
-                        <div><a href="https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md" target="_blank">Full list of supported sites</a></div><br>
-                        <div>Only one download can happen at a time.</div>
-                        <div>If the load status is busy, please wait until the other user's download is finished.</div>
-                        <div>The output/prograss of the other user's or your download can be seen on this page.</div>
-                        <div>The status is only updated on load. So if the status is busy, please refresh the page for an update.</div><br>
-                    </div>
-                    <br>
-                    <label>Media URL: <input type="text" id="ytURL" name="ytURL" placeholder="https://www.youtube.com/watch?v=..."></label>
-                    <input type="submit" value="Submit" onclick="download_start()"><br>
-                    <label for="videoFormat"><input type="radio" id="videoFormat" name="format" value="videoFormat" checked>Video</label>
-                    <label for="audioFormat"><input type="radio" id="audioFormat" name="format" value="audioFormat">Audio</label>
-                    <label for="embedThumbnail"><input type="checkbox" id="embedThumbnail" name="embedThumbnail" value="embedThumbnail">Embed Thumbnail</label><br><br>
-                    <label for="multithreaded"><input type="checkbox" id="multithreaded" name="multithreaded" value="multithreaded" onchange="toggleMultithreadSettings()">Multithreaded Download</label><br>
-                    <div id="multithreadedArgs">
-                        <span>----------Multithreaded Arguments----------<br></span>
-                        <label for="maxConnPerServer">Max connections per server: </label><input type="text" id="maxConnPerServer" name="maxConnPerServer" placeholder="Default: 1"></label><br>
-                        <label for="split">Split: <input type="text" id="split" name="split" placeholder="Default: 5"></label><br>
-                        <label for="minSplitSize">Min split size: <input type="text" id="minSplitSize" name="minSplitSize" placeholder="(1M - 1024M) Default: 20M"></label><br><br>
-                        <label for="showExplanation"><input type="checkbox" id="showExplanation" name="showExplanation" value="showExplanation" onchange="toggleMTArgExplanation()">Show Argument Explanation</label>
-                        <div id="mTArgumentExplanation">
-                            <span>----------Argument Explanation----------<br></span>
-                            Max connections per server:<br>
-                            The maximum number of connections to one server for each download. Default: 1
-                            <br><br>
-                            Split:<br>
-                            Download a file using N connections. If more than N URIs are given, first N URIs are used and remaining URIs are used for backup. If less than N URIs are given, those URIs are used more than once so that N connections total are made simultaneously. The number of connections to the same host is restricted by the --max-connection-per-server option. See also the --min-split-size option. Default: 5
-                            <br><br>
-                            Min split size:<br>
-                            aria2 does not split less than 2*SIZE byte range. For example, let's consider downloading 20MiB file. If SIZE is 10M, aria2 can split file into 2 range [0-10MiB) and [10MiB-20MiB) and download it using 2 sources(if --split >= 2, of course). If SIZE is 15M, since 2*15M > 20MiB, aria2 does not split file and download it using 1 source. You can append K or M (1K = 1024, 1M = 1024K). Possible Values: 1M -1024M Default: 20M
+            <div>
+                <h2 id="warning"></h2>
+                <div id="download_form">
+                    <form action="../scripts/ytCmdDownload.php" method="post" onsubmit="">
+                        <label for="showHelp"><input id="showHelp" type="checkbox" onchange="toggleShowHelp()" checked>Show Help</label>
+                        <div id="helpDiv">
+                            <div>This site is a web api for youtube-dl and yt-dlp.</div><br>
+                            <div><a href="https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md" target="_blank">Full list of supported sites</a></div><br>
+                            <div>Only one download can happen at a time.</div>
+                            <div>If the load status is busy, please wait until the other user's download is finished.</div>
+                            <div>The output/prograss of the other user's or your download can be seen on this page.</div>
+                            <div>The status is only updated on load. So if the status is busy, please refresh the page for an update.</div><br>
                         </div>
-                    </div><br>
-                    <label for="formatId">
-                        Format ID (Optional, Overrides Radio Buttons "Video/Audio")
                         <br>
-                        <input type="text" id="formatId" name="formatId" placeholder="Format ID (optional)">
-                    </label>
-                </form><br>
-                <form action="../scripts/ytCmdFormat.php" method="post">
-                    <input type="text" id="ytURL" name="ytURL" placeholder="https://www.youtube.com/watch?v=...">
-                    <input type="submit" value="Show Format" onclick="document.getElementById('format_out').innerHTML = 'FORMATTING'">
-                </form>
-                <div id="format_out"></div>
+                        <label>Media URL: <input type="text" id="ytURL" name="ytURL" placeholder="https://www.youtube.com/watch?v=..."></label>
+                        <input type="submit" value="Submit" onclick="download_start()"><br>
+                        <label for="videoFormat"><input type="radio" id="videoFormat" name="format" value="videoFormat" checked>Video</label>
+                        <label for="audioFormat"><input type="radio" id="audioFormat" name="format" value="audioFormat">Audio</label>
+                        <label for="embedThumbnail"><input type="checkbox" id="embedThumbnail" name="embedThumbnail" value="embedThumbnail">Embed Thumbnail</label><br><br>
+                        <label for="multithreaded"><input type="checkbox" id="multithreaded" name="multithreaded" value="multithreaded" onchange="toggleMultithreadSettings()">Multithreaded Download</label><br>
+                        <div id="multithreadedArgs">
+                            <span>----------Multithreaded Arguments----------<br></span>
+                            <label for="maxConnPerServer">Max connections per server: </label><input type="text" id="maxConnPerServer" name="maxConnPerServer" placeholder="Default: 1"></label><br>
+                            <label for="split">Split: <input type="text" id="split" name="split" placeholder="Default: 5"></label><br>
+                            <label for="minSplitSize">Min split size: <input type="text" id="minSplitSize" name="minSplitSize" placeholder="(1M - 1024M) Default: 20M"></label><br><br>
+                            <label for="showExplanation"><input type="checkbox" id="showExplanation" name="showExplanation" value="showExplanation" onchange="toggleMTArgExplanation()">Show Argument Explanation</label>
+                            <div id="mTArgumentExplanation">
+                                <span>----------Argument Explanation----------<br></span>
+                                Max connections per server:<br>
+                                The maximum number of connections to one server for each download. Default: 1
+                                <br><br>
+                                Split:<br>
+                                Download a file using N connections. If more than N URIs are given, first N URIs are used and remaining URIs are used for backup. If less than N URIs are given, those URIs are used more than once so that N connections total are made simultaneously. The number of connections to the same host is restricted by the --max-connection-per-server option. See also the --min-split-size option. Default: 5
+                                <br><br>
+                                Min split size:<br>
+                                aria2 does not split less than 2*SIZE byte range. For example, let's consider downloading 20MiB file. If SIZE is 10M, aria2 can split file into 2 range [0-10MiB) and [10MiB-20MiB) and download it using 2 sources(if --split >= 2, of course). If SIZE is 15M, since 2*15M > 20MiB, aria2 does not split file and download it using 1 source. You can append K or M (1K = 1024, 1M = 1024K). Possible Values: 1M -1024M Default: 20M
+                            </div>
+                        </div><br>
+                        <label for="formatId">
+                            Format ID (Optional, Overrides Radio Buttons "Video/Audio")
+                            <br>
+                            <input type="text" id="formatId" name="formatId" placeholder="Format ID (optional)">
+                        </label>
+                    </form><br>
+                    <form action="../scripts/ytCmdFormat.php" method="post">
+                        <input type="text" id="ytURL" name="ytURL" placeholder="https://www.youtube.com/watch?v=...">
+                        <input type="submit" value="Show Format" onclick="document.getElementById('format_out').innerHTML = 'FORMATTING'">
+                    </form>
+                    <div id="format_out"></div>
+                </div>
+                <h1 id="status"></h1>
+                <p id="output"></p>
             </div>
-            <h1 id="status"></h1>
-            <p id="output"></p>
         </main>
 
         <footer>

@@ -1,5 +1,17 @@
+#navbar {
+    background-color: #1D3557;
+}
+
+.nav-link {
+    color: #E63946;
+}
+
 main {
-    /* top: 100px; */
+    background-color: #E63946;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #multithreadedArgs {
