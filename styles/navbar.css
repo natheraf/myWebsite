@@ -7,15 +7,15 @@
     top: 0;
     margin-left: -8px;
     width: 100%;
-    height: 5%;
+    height: .5in;
     align-items: center;
     justify-content: center;
 }
 
 #nav-link-home {
     justify-self: start;
-    height: 40px;
-    margin-top: 5px;
+    height: .4in;
+    margin-top: .05in;
 }
 
 .nav-link {
