@@ -13,6 +13,8 @@ function download_start() {
     hideDownloadForm();
     document.getElementById("status").innerHTML = "Status on load: DOWNLOADING";
     document.getElementById("output").style.overflowY = "scroll";
+    document.getElementById("output").style.visibility = "visible";
+    document.getElementById("output").style.minHeight = "60vh";
 }
 
 function ajax_download_info() {

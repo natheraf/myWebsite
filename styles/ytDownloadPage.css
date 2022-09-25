@@ -6,6 +6,10 @@
     color: #E63946;
 }
 
+body {
+    overflow-y: hidden;
+}
+
 main {
     background-color: #E63946;
     margin: -8px -8px 8px -8px;
@@ -13,13 +17,18 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
 }
 
 #panel {
     background-color: #F1FAEE;
-    height: fit-content;
     width: 50%;
-    padding: 55px 1em 0px 1em;
+    padding: 0px 1em 0px 1em;
+    border-radius: 10px;
+    overflow-y: hidden;
+    max-height: 80%;
+    min-height: fit-content;
+    height: min-content;
 }
 
 #multithreadedArgs {
@@ -37,21 +46,14 @@ main {
     height: 0px;
 }
 
-#cancel_form {
-    visibility: hidden;
-    height: 0px;
-}
-
-/* #download_form { #change1
-    visibility: hidden;
-    height: 0px;
-} */
-
 #warning {
     color: red;
 }
 
 #output {
-    height: 60vh;
+    visibility: hidden;
+    height: 0px;
     font-family: Consolas;
+    background-color: black;
+    color: #F1FAEE;
 }
