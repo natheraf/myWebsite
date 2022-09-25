@@ -41,6 +41,8 @@ function ajax_download_info() {
 function hideDownloadForm() {
     document.getElementById("download_form").style.visibility = 'hidden';
     document.getElementById("download_form").style.height = '0px';
+    document.getElementById("helpDiv").style.visibility = 'hidden';
+    document.getElementById("helpDiv").style.height = '0px';
 }
 
 function showDownloadForm() {
