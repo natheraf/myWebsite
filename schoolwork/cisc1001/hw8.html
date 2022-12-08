@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <h2>Hello User. How are you today? <a href="https://darksky.net/" target="_blank">Check the weather</a></h2>
+        <input type="button" value="Change background color to black" onclick="document.body.style.backgroundColor = 'black';">
+        <input type="button" value="Change background color to white" onclick="document.body.style.backgroundColor = 'white';">
+        <input type="button" value="Change background color to red" onclick="document.body.style.backgroundColor = 'red';">
+        <br>
+        <input type="button" value="Change text color to white" onclick="document.body.style.color = 'white';">
+        <input type="button" value="Change text color to black" onclick="document.body.style.color = 'black';">
+        <input type="button" value="Change text color to blue" onclick="document.body.style.color = 'blue';">
+        <br><br>
+        <label for="animal">Tell me an animal: <input type="text" id="animal"></label><br>
+        <label for="place">Tell me a place: <input type="text" id="place"></label><br>
+        <label for="emotion">Tell me an emotion: <input type="text" id="emotion"></label>
+        <h2 onclick="document.body.innerHTML += '<h3>There was once a ' + document.getElementById('animal').value + '. They lived in ' + document.getElementById('place').value + '. They were very ' + document.getElementById('emotion').value + ' about living there.</h3>'">Click to generate MadLib</h2>
+    </body>
+</html>
