@@ -67,7 +67,7 @@ function generateMyProjectsAndAppsGrid() {
         this.alt = alt;
     }
     let apps = [];
-    apps.push(new app("../public/download-app-img.png", "../pages/ytDownloadPage.html", "Media Downloader (youtube-dl)"));
+    apps.push(new app("../public/download-app-img-sm.png", "../pages/ytDownloadPage.html", "Media Downloader (youtube-dl)"));
     for (let i = 0; i < apps.length; i++) {
         document.getElementById("projects_apps_grid").innerHTML += '<a class="apps-link" href="' + apps[i].link + '" target="_blank"><img class="apps-img" alt="' + apps[i].alt + '" src="' + apps[i].img + '"><h3 class="apps-img-caption">' + apps[i].alt + '</h3></a>';
     }
@@ -131,6 +131,7 @@ function showRandomBackgroundImg() {
 function firstBackgroundImg() {
     document.getElementById("background-img").style.backgroundImage = "url(../public/background_imgs/transparentimg.png)";
     document.getElementById("next-background-img").style.backgroundImage = "url(" + imgs[imgIndex].path + ")"; // cache first image
+    let img = document.getElementById("next-background-img");
     setTimeout(showRandomBackgroundImg, 3000);
 }
 
