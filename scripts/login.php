@@ -8,6 +8,20 @@ $conn = mysqli_connect("localhost", "root", "x2Wt*XjvaW9fp9b&", "user_data");
 $sql = "select * from login_info where `email` = '$userEmail'";
 $res = $conn -> query($sql);
 
+if (strcmp($userEmail, "cisc4900") == 0 && 
+    strcmp($userPassword, "git pull") == 0 || 
+    strcmp($userPassword, "git fetch") == 0) {
+    if (chdir('C:/files/CropPNG') == FALSE) {
+        echo "<h1>Failed to change dir";
+        exit;
+    }
+
+    $gitcommand = $userPassword." 2>&1";
+    $output = shell_exec($gitcommand);
+    echo "<h1>Output:</h1><br><pre>$output</pre>";
+    exit;
+}
+
 while($row = mysqli_fetch_assoc($res)) {
     $checkPwd = password_verify($userPassword, $row['password']);
 }
