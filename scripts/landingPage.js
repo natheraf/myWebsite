@@ -19,7 +19,7 @@ function generateMyPathHereGrid() {
         new PathObj("https://codepen.io/natheraf/pen/OJORNrM", "https://shots.codepen.io/natheraf/pen/OJORNrM-512.webp?version=1645307852", "FCC assignment: Technical Documentation Page"), 
         new PathObj("https://codepen.io/natheraf/pen/YzEawQp", "https://shots.codepen.io/natheraf/pen/YzEawQp-512.webp?version=1645313187", "FCC assignment: Personal Portfolio"), 
     );
-    for (let i = links.length - 1; i >= 0 ; i--) {
+    for (let i = pathObjs.length - 1; i >= 0 ; i--) {
         document.getElementById("history-grid").innerHTML += '<a class="project-tile" href="' + pathObjs[i].link + '" target="_blank"><img class="img" alt="' + pathObjs[i].link.figcaption + '" src="' + pathObjs[i].thumbnailImgs + '"><figcaption class="history-img-caption">' + pathObjs[i].figcaption + '</figcaption></a>'
     }
 }
