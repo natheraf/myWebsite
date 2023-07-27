@@ -1,5 +1,5 @@
 <?php // 2>&1 (gets exec output [not needed])
-if (file_get_contents('..\files\ytdownloads\status.txt') == 'idel') {
+if (file_get_contents('..\files\ytdownloads\status.txt') == 'idle') {
     $ytURL = trim($_POST['ytURL']);
     $format = $_POST['format']; // videoFormat audioFormat
     $formatId = trim($_POST['formatId']);
@@ -41,6 +41,7 @@ if (file_get_contents('..\files\ytdownloads\status.txt') == 'idel') {
     
     file_put_contents('..\files\ytdownloads\status.txt', 'busy');
     file_put_contents('..\files\ytdownloads\stream.txt', '');
+    shell_exec("echo 'Downloader updating, please wait...'");
     $cmd = '"..\files\youtube-dl\youtube-dl" -U > ..\files\ytdownloads\stream.txt &';
     shell_exec($cmd);
     $cmd = '"..\files\youtube-dl\yt-dlp" -U > ..\files\ytdownloads\stream.txt &';
@@ -49,7 +50,7 @@ if (file_get_contents('..\files\ytdownloads\status.txt') == 'idel') {
     shell_exec($cmd);
     $cmd = '"..\files\youtube-dl\yt-dlp" --rm-cache-dir --restrict-filenames '.$tag.'-o "..\files\ytdownloads\%(title)s.%(ext)s" '.$ytURL.' > ..\files\ytdownloads\stream.txt &';
     shell_exec($cmd);
-    file_put_contents('..\files\ytdownloads\status.txt', 'idel');
+    file_put_contents('..\files\ytdownloads\status.txt', 'idle');
     header('Location: ../pages/ytDownloadCompletePg.html');
 } else {
     header('Location: ../pages/ytDownloadPage.html?status=notIdel');

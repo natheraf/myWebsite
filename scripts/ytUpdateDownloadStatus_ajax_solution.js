@@ -18,7 +18,7 @@ function download_start() {
 }
 
 function ajax_download_info() {
-    if (document.getElementById("status").innerHTML == "Status on load: DOWNLOADING") {
+    if (document.getElementById("status").innerHTML == "Downloading...") {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -104,7 +104,7 @@ function check_if_status() {
         document.getElementById("format_out").innerHTML = '<a href="../files/ytdownloads/formatOut.txt" target="_blank">Link to Format</a>';
     }
     if (status == 'notIdel') {
-        document.getElementById("warning").innerHTML = 'Please wait until status is IDEL';
+        document.getElementById("warning").innerHTML = 'Please wait until status is IDLE';
     }
 }
 
@@ -121,8 +121,8 @@ function check_if_busy() { // true if not busy
             if (this.responseText == 'busy') {
                 document.getElementById("status").innerHTML = "Status on load: BUSY";
                 return false;
-            } else if (this.responseText == 'idel') {
-                document.getElementById("status").innerHTML = "Status on load: IDEL";
+            } else if (this.responseText == 'idle') {
+                document.getElementById("status").innerHTML = "Status on load: IDLE";
                 return true;
             } else {
                 document.getElementById("status").innerHTML = "Status on load: UNKNOWN";
