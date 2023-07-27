@@ -6,31 +6,21 @@ function landingPageOnLoad() {
 }
 
 function generateMyPathHereGrid() {
-    // each grid tile will have their resource stored in each array in the same index
-    let links = [
-        "https://codepen.io/natheraf/pen/BamKmGO",
-        "https://codepen.io/natheraf/pen/PoONemV",
-        "https://codepen.io/natheraf/pen/MWOexQz",
-        "https://codepen.io/natheraf/pen/OJORNrM",
-        "https://codepen.io/natheraf/pen/YzEawQp"
-    ];
-    let thumbnailImgs = [
-        "https://shots.codepen.io/natheraf/pen/BamKmGO-512.webp?version=1643951965",
-        "https://shots.codepen.io/natheraf/pen/PoONemV-512.webp?version=1643951955",
-        "https://shots.codepen.io/natheraf/pen/MWOexQz-512.webp?version=1643951943",
-        "https://shots.codepen.io/natheraf/pen/OJORNrM-512.webp?version=1645307852",
-        "https://shots.codepen.io/natheraf/pen/YzEawQp-512.webp?version=1645313187"
-    ];
-    let figcaptions = [
-        "FCC assignment: Tribute Page",
-        "FCC assignment: Survey Form",
-        "FCC assignment: Product Landing Page",
-        "FCC assignment: Technical Documentation Page",
-        "FCC assignment: Personal Portfolio"
-    ]; // figcaptions and alt for imgs
-    // i guess i can create objects, but i'll do this first because it is how i first envisioned it.
+    function PathObj(link, thumbnailImgs, figcaption) {
+        this.link = link;
+        this.thumbnailImgs = thumbnailImgs;
+        this.figcaption = figcaption;
+    }
+    let pathObjs = [];
+    pathObjs.push(
+        new PathObj("https://codepen.io/natheraf/pen/BamKmGO", "https://shots.codepen.io/natheraf/pen/BamKmGO-512.webp?version=1643951965", "FCC assignment: Tribute Page"), 
+        new PathObj("https://codepen.io/natheraf/pen/PoONemV", "https://shots.codepen.io/natheraf/pen/PoONemV-512.webp?version=1643951955", "FCC assignment: Survey Form",), 
+        new PathObj("https://codepen.io/natheraf/pen/MWOexQz", "https://shots.codepen.io/natheraf/pen/MWOexQz-512.webp?version=1643951943", "FCC assignment: Product Landing Page"), 
+        new PathObj("https://codepen.io/natheraf/pen/OJORNrM", "https://shots.codepen.io/natheraf/pen/OJORNrM-512.webp?version=1645307852", "FCC assignment: Technical Documentation Page"), 
+        new PathObj("https://codepen.io/natheraf/pen/YzEawQp", "https://shots.codepen.io/natheraf/pen/YzEawQp-512.webp?version=1645313187", "FCC assignment: Personal Portfolio"), 
+    );
     for (let i = links.length - 1; i >= 0 ; i--) {
-        document.getElementById("history-grid").innerHTML += '<a class="project-tile" href="' + links[i] + '" target="_blank"><img class="img" alt="' + figcaptions[i] + '" src="' + thumbnailImgs[i] + '"><figcaption class="history-img-caption">' + figcaptions[i] + '</figcaption></a>'
+        document.getElementById("history-grid").innerHTML += '<a class="project-tile" href="' + pathObjs[i].link + '" target="_blank"><img class="img" alt="' + pathObjs[i].link.figcaption + '" src="' + pathObjs[i].thumbnailImgs + '"><figcaption class="history-img-caption">' + pathObjs[i].figcaption + '</figcaption></a>'
     }
 }
 
@@ -85,8 +75,6 @@ let navUA = window.navigator.userAgent;
 let navConnnectionAvailable =  navUA.includes("Chrome") || navUA.includes("Edg") || navUA.includes("OPR"); // false if on FireFox or Safari
 
 if (navConnnectionAvailable) {
-    console.log(navigator.connection);
-
     // old profiling
     if(navigator.connection.downlink > 8) {
         imgs = getArrayOfImages("../public/background_imgs/originalQ/"); // returns array with original quality imgs
